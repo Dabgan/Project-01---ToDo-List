@@ -61,8 +61,8 @@ body {
   font-size: 1.2rem;
   border-radius: 20px;
   cursor: pointer;
-  -webkit-transition: 1s all;
-  transition: 1s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
 }
 
 .button:hover {
@@ -83,7 +83,7 @@ body {
 }
 
 .todo-list-cnt label {
-  margin: 10px;
+  margin: 25px;
 }
 
 .todo-item {
