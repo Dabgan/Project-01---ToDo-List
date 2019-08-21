@@ -1,6 +1,108 @@
 * {
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 *, *::before, *::after {
-    box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
+
+body {
+  background: #3c5543;
+  color: #eeeeee;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+.todo-cnt {
+  margin: 100px auto;
+  max-width: 500px;
+}
+
+.todo-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 1px 2px #333333;
+          box-shadow: 0 1px 2px #333333;
+}
+
+.label {
+  margin: 20px auto 10px;
+}
+
+.text-field {
+  width: 300px;
+  height: 100px;
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+  margin: 20px auto 0;
+  background: #F15C5C;
+  border: 0;
+  -webkit-box-shadow: inset -2px -2px 1px #990d0d;
+          box-shadow: inset -2px -2px 1px #990d0d;
+  color: #ffffff;
+  text-shadow: 1px 1px 0 #056754;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
+.button:hover {
+  background: #cc1111;
+}
+
+.todo-list-cnt {
+  margin: 100px auto;
+  padding: 0px 10px 20px;
+  max-width: 500px;
+  min-height: 200px;
+  -webkit-box-shadow: 0 1px 2px #333333;
+          box-shadow: 0 1px 2px #333333;
+}
+
+.todo-list-cnt h2 {
+  padding: 10px 10px 0;
+}
+
+.todo-list-cnt label {
+  margin: 10px;
+}
+
+.todo-item {
+  list-style: none;
+  margin: 5px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-shadow: 0 1px 2px #333333;
+          box-shadow: 0 1px 2px #333333;
+}
+
+.todo-item .delete-button {
+  color: red;
+  padding: 0 10px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
