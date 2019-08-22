@@ -17,14 +17,16 @@ document.addEventListener('DOMContentLoaded', function(){
     function createNewItem(){
         const newListItem = document.createElement('li');
         const newDeleteButton = document.createElement('div');
+        
         newListItem.classList.add('todo-item');
         newDeleteButton.classList.add('delete-button');
         newDeleteButton.innerText = 'x';
-        newListItem.innerText = textField.value;
+        // counting list items
+        textField.value == '' ? newListItem.innerText = deleteButtons.length+1 + '. ' + textField.getAttribute('placeholder') : newListItem.innerText = deleteButtons.length+1 + '. ' + textField.value;
 
         todoList.appendChild(newListItem);
         newListItem.appendChild(newDeleteButton);
-        console.log(deleteButtons.length);
+        textField.value = '';
     };
 
     // function that adds self destruction functionality to list elements
@@ -46,6 +48,5 @@ document.addEventListener('DOMContentLoaded', function(){
             todoList.removeChild(todoList.firstElementChild);
         }
     });
-    
 
 });
