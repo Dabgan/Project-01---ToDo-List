@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const textField = document.querySelector('.text-field');
     const addButton = document.querySelector('.todo-form button');
     const todoList = document.querySelector('.todo-list ul');
-
+    const deleteButtons = document.getElementsByClassName('delete-button');
 
     addForm.addEventListener('submit', function(e){
         e.preventDefault();
@@ -21,13 +21,24 @@ document.addEventListener('DOMContentLoaded', function(){
 
         todoList.appendChild(newListItem);
         newListItem.appendChild(newDeleteButton);
+        console.log(deleteButtons.length);
+    };
 
+    function selfDestruction(){
+        deleteButtons[deleteButtons.length-1].addEventListener('click', function(){
+            this.parentElement.parentElement.removeChild(this.parentElement);
+        });
     };
 
     addButton.addEventListener('click', function(){
-
-        createNewItem();
+        createNewItem();  
+        selfDestruction();
     });
 
+    deleteButtons[deleteButtons.length-1].addEventListener('click', function(){
+        alert(this);
+    });
+    
+    
 
 });
