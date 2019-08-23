@@ -18,15 +18,32 @@ document.addEventListener('DOMContentLoaded', function(){
     function createNewItem(){
         const newListItem = document.createElement('li');
         const newDeleteButton = document.createElement('div');
+        const itemPosition = document.createElement('span');
+        const itemText = document.createElement('span');
+        const itemContainer = document.createElement('div');
         
         newListItem.classList.add('todo-item');
         newDeleteButton.classList.add('delete-button');
+        itemPosition.classList.add('item-position');
+        itemText.classList.add('item-text');
+        itemContainer.classList.add('item-container');
         newDeleteButton.innerText = 'x';
-        // counting list items
-        textField.value == '' ? newListItem.innerText = deleteButtons.length+1 + '. ' + textField.getAttribute('placeholder') : newListItem.innerText = deleteButtons.length+1 + '. ' + textField.value;
 
         todoList.appendChild(newListItem);
+        newListItem.appendChild(itemContainer)
+        itemContainer.appendChild(itemPosition);
+        itemContainer.appendChild(itemText);
         newListItem.appendChild(newDeleteButton);
+        
+
+        if (textField.value == ''){
+            newListItem.querySelector('.item-position').innerText = deleteButtons.length + '.';
+            newListItem.querySelector('.item-text').innerText = textField.getAttribute('placeholder');
+        } else {
+            newListItem.querySelector('.item-position').innerText = deleteButtons.length + '.';
+            newListItem.querySelector('.item-text').innerText = textField.value;
+        }
+        // clearing input at the end
         textField.value = '';
     };
 
@@ -34,7 +51,16 @@ document.addEventListener('DOMContentLoaded', function(){
     function selfDestruction(){
         deleteButtons[deleteButtons.length-1].addEventListener('click', function(){
             this.parentElement.parentElement.removeChild(this.parentElement);
+            appendNumeration();
         });
+    };
+
+    // function that correctly append right number to list items
+    function appendNumeration(){
+        for (let i=0; i < todoList.children.length; i++){
+            const itemPosition = todoList.children[i].querySelector('.item-position');
+            itemPosition.innerText = i+1 + '.';;
+        }
     };
  
     // Button which adds new elements to the list
@@ -54,11 +80,12 @@ document.addEventListener('DOMContentLoaded', function(){
     search.addEventListener('keyup', function(){
         
         for (const li of todoList.children){
-            if (li.textContent.indexOf(search.value) == -1){
+            if (li.textContent.toLowerCase().indexOf(search.value.toLowerCase()) == -1){
                 li.classList.add('disable');
             } else {
                 li.classList.remove('disable');
             }
-        }
+        };      
+
     })
 });

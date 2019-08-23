@@ -105,6 +105,20 @@ body {
   cursor: pointer;
 }
 
+.todo-item .item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.todo-item .item-position {
+  color: yellow;
+  margin-right: 5px;
+}
+
 .clear-button {
   width: 80px;
   height: 25px;
