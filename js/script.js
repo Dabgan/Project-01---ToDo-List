@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const todoList = document.querySelector('.todo-list ul');
     const deleteButtons = document.getElementsByClassName('delete-button');
     const clearButton = document.querySelector('#clear');
+    const search = document.querySelector('#search');
 
     // turning off default submit for form
     addForm.addEventListener('submit', function(e){
@@ -49,4 +50,15 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    // Input area which search through our list
+    search.addEventListener('keyup', function(){
+        
+        for (const li of todoList.children){
+            if (li.textContent.indexOf(search.value) == -1){
+                li.classList.add('disable');
+            } else {
+                li.classList.remove('disable');
+            }
+        }
+    })
 });

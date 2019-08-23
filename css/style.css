@@ -73,7 +73,6 @@ body {
   margin: 100px auto;
   padding: 0px 10px 20px;
   max-width: 500px;
-  min-height: 200px;
   -webkit-box-shadow: 0 1px 2px #333333;
           box-shadow: 0 1px 2px #333333;
 }
@@ -125,5 +124,15 @@ body {
 
 .clear-button:hover {
   background: #cc1111;
+}
+
+.todo-list ul {
+  min-height: 100px;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.disable {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
