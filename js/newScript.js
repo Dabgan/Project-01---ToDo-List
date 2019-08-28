@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function(){
       const itemLineThrough = done ? lineThrough : '';
       const item = `
                     <li class='todo-item'>
-                      <i class="${itemDone}" data-job='complete' id="${id}">V</i>
+                      <i class="${itemDone} far fa-check-circle" data-job='complete' id="${id}"></i>
                       <p class="text ${itemLineThrough}">${toDo}</p>
-                      <div class="delete-button" data-job='delete' id="${id}">X</div>
+                      <i class="fas fa-trash delete-button" data-job='delete' id="${id}"></i>
                     </li>
                     `;
       const position = 'beforeend';
@@ -65,6 +65,18 @@ document.addEventListener('DOMContentLoaded', function(){
         addToDo(toDo, id, false, false);
         list.push({
           name : toDo,
+          id : id,
+          done : false,
+          trash : false
+        });
+        // add item to local storage
+        localStorage.setItem('items', JSON.stringify(list));
+        id++;
+      } else {
+        const emptyField = textField.getAttribute('placeholder');
+        addToDo(emptyField, id, false, false);
+        list.push({
+          name : emptyField,
           id : id,
           done : false,
           trash : false
