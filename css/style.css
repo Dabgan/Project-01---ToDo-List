@@ -99,26 +99,6 @@ body {
           box-shadow: 0 1px 2px #333333;
 }
 
-.todo-item .delete-button {
-  color: red;
-  padding: 0 10px;
-  cursor: pointer;
-}
-
-.todo-item .item-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.todo-item .item-position {
-  color: yellow;
-  margin-right: 5px;
-}
-
 .clear-button {
   width: 80px;
   height: 25px;
@@ -148,5 +128,37 @@ body {
 
 .disable {
   display: none;
+}
+
+.delete-button {
+  color: red;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.item-position {
+  color: yellow;
+  margin-right: 5px;
+}
+
+.check {
+  color: green;
+}
+
+.uncheck {
+  color: inherit;
+}
+
+.lineThrough {
+  text-decoration: line-through;
 }
 /*# sourceMappingURL=style.css.map */
