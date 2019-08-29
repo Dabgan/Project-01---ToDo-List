@@ -10,24 +10,26 @@
     </head>
     <body>
         <div class="todo-cnt">
-            <form class="todo-form">
-                <label for="text" class="label">Add new task</label>
-                <textarea type="text" name="text" class="text-field" placeholder="some new task"></textarea>
-                <button class="button" type="submit">Add to list!</button>
+            
+            <form id="search-form" class="display">
+                <input type="search" class="todo-search" id="search" placeholder="search...">
+                <button title="clear" id="clear" class="clear-button"><i class="fas fa-retweet"></i></button>
             </form>
-        </div>
-        <section class="todo-list-cnt">
-            <h2> Task list:</h2>
-            <form id="search-form">
-                <label for="search">Search:</label>
-                <input type="search" class="todo-search" id="search">
-                <button title="clear" id="clear" class="clear-button">Clear all</button>
-            </form>
+            
+
             <div class="todo-list" id="todo-list">
                 <ul>
                 </ul>
             </div>
-        </section>
+            
+            <form class="todo-form">
+                <button class="button" type="submit" id="addButton"><i class="far fa-plus-square"></i></button>
+                <label for="text" class="label"></label>
+                <input type="text" name="text" class="text-field" placeholder="Add new task"></input>
+            </form>
+
+        </div>
+        
 
         
 

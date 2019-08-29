@@ -3,15 +3,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // anchors
     const form = document.querySelector('form');
+    const toDoForm = document.querySelector('.todo-form');
     const ul = document.querySelector('ul');
-    const button = document.querySelector('button');
+    const button = document.querySelector('#addButton');
     const textField = document.querySelector('.text-field');
     const clearButton = document.querySelector('#clear');
     const search = document.querySelector('#search');
     
-    const check = 'check';
-    const uncheck = 'uncheck';
+    const check = 'fa-check-circle';
+    const uncheck = 'fa-circle';
     const lineThrough = 'lineThrough';
+    
 
     // variables
     let list;
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
       const itemLineThrough = done ? lineThrough : '';
       const item = `
                     <li class='todo-item'>
-                      <i class="${itemDone} far fa-check-circle" data-job='complete' id="${id}"></i>
+                      <i class="far ${itemDone}" data-job='complete' id="${id}"></i>
                       <p class="text ${itemLineThrough}">${toDo}</p>
                       <i class="fas fa-trash delete-button" data-job='delete' id="${id}"></i>
                     </li>
@@ -57,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('submit', function(e) {
       e.preventDefault();
     });
+
+    toDoForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+    });
+
+    
     
     // add an item
     button.addEventListener('click', function(){
@@ -120,9 +128,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // Button which clears the whole list
     clearButton.addEventListener('click', function() {
       localStorage.clear();
-      while (ul.firstChild) {
-        ul.removeChild(ul.firstChild);
-      }
+      location.reload();
     });
 
     // Input area which search through our list
