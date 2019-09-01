@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const textField = document.querySelector('.text-field');
     const clearButton = document.querySelector('#clear');
     const search = document.querySelector('#search');
+    const displayDate = document.querySelector('.current-date');
     
     const check = 'fa-check-circle';
     const uncheck = 'fa-circle';
@@ -142,5 +143,20 @@ document.addEventListener('DOMContentLoaded', function(){
       }
   });
 
+    // function that adds leading zeros if they are required
+    function leadingZero(i){
+      return (i<10) ? '0' + i : i;
+    }
+
+    // function that will add current date to app
+    function addDate(){
+      const currentDate = new Date();
+      const days = ['Sunday','Monday','Tuesday','Thursday','Friday','Saturday'];
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      // displayDate.textContent = `${days[currentDate.getDay()]}, ${currentDate.getDate()} ${months[currentDate.getMonth()]}`
+      displayDate.textContent = `${days[currentDate.getDay()]}, ${months[currentDate.getMonth()]} ${leadingZero(currentDate.getDate())}`
+    }
+
+    addDate();
 
 });
