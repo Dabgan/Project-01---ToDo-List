@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
       const item = `
                     <li class='todo-item'>
                       <i class="far ${itemDone}" data-job='complete' id="${id}"></i>
-                      <p class="text ${itemLineThrough}">${toDo}</p>
+                      <p class="text ${itemLineThrough}" data-job='edit'>${toDo}</p>
                       <i class="fas fa-trash delete-button" data-job='delete' id="${id}"></i>
                     </li>
                     `;
@@ -125,6 +125,32 @@ document.addEventListener('DOMContentLoaded', function(){
         localStorage.setItem('items', JSON.stringify(list));
     });
 
+  
+    // target items created dynamically and add editability to items
+    ul.addEventListener('dblclick', (event) => {
+      const clickedItem = event.target;
+      const clickedElementJob = clickedItem.dataset.job;
+      const value = clickedItem.textContent;
+      if (clickedElementJob == 'edit'){
+       clickedItem.outerHTML =  `<input class="text " data-job="edit" value='${value}'></input>`;
+      }
+      
+    });
+
+    // target items created dynamically and check if they are input fields, if so get the value when loose focus
+    ul.addEventListener('keypress', (event) => {
+      const clickedItem = event.target;
+      if (clickedItem.hasAttribute('value')){
+        if (event.keyCode == 13){
+          const newInput = document.querySelector('[value]');
+          const listItem = list[clickedItem.previousElementSibling.id];
+          clickedItem.outerHTML =  `<p class="text " data-job="edit">${newInput.value}</p>`;
+          listItem.name = newInput.value;
+        }
+      }
+      localStorage.setItem('items', JSON.stringify(list));
+    });
+    
 
     // Button which clears the whole list
     clearButton.addEventListener('click', function() {
@@ -143,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
   });
 
-    // function that adds leading zeros if they are required
+    // function that adds leading zeros if they are required (to date, to hours etc.)
     function leadingZero(i){
       return (i<10) ? '0' + i : i;
     }
@@ -156,6 +182,8 @@ document.addEventListener('DOMContentLoaded', function(){
       // displayDate.textContent = `${days[currentDate.getDay()]}, ${currentDate.getDate()} ${months[currentDate.getMonth()]}`
       displayDate.textContent = `${days[currentDate.getDay()]}, ${months[currentDate.getMonth()]} ${leadingZero(currentDate.getDate())}`
     }
+
+
 
     addDate();
 

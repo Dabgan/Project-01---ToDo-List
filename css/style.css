@@ -122,6 +122,10 @@ body {
   background: #f8f8f8;
   border-bottom: 2px solid black;
   height: 42px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 
@@ -217,5 +221,9 @@ body {
 
 .fa-check-circle {
   color: #169716;
+}
+
+.red {
+  background: red;
 }
 /*# sourceMappingURL=style.css.map */
