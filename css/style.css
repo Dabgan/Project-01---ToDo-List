@@ -113,9 +113,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -137,6 +137,27 @@ body {
   font-size: 1.9rem;
   padding: 8px 5px 8px 10px;
   cursor: pointer;
+}
+
+.delete-button {
+  font-size: 1.4rem;
+  padding: 0 15px;
+  cursor: pointer;
+  justify-self: flex-end;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.text {
+  font-size: 1.2rem;
+  padding-left: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
 }
 
 .todo-form {
@@ -185,25 +206,6 @@ body {
   display: none;
 }
 
-.delete-button {
-  font-size: 1.4rem;
-  padding: 0 15px;
-  cursor: pointer;
-  justify-self: flex-end;
-  margin: auto 0 auto auto;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.delete-button:hover {
-  color: red;
-}
-
-.text {
-  font-size: 1.2rem;
-  padding-left: 5px;
-}
-
 .lineThrough {
   text-decoration: line-through;
   -webkit-text-decoration-color: black;
@@ -223,7 +225,7 @@ body {
   color: #169716;
 }
 
-.red {
-  background: red;
+.checked {
+  background: #99e691;
 }
 /*# sourceMappingURL=style.css.map */

@@ -134,23 +134,37 @@ document.addEventListener('DOMContentLoaded', function(){
       if (clickedElementJob == 'edit'){
        clickedItem.outerHTML =  `<input class="text " data-job="edit" value='${value}'></input>`;
       }
-      
     });
 
+    // target items created dynamically and check if they are input fields, if so get the value when enter pressed
+    ul.addEventListener('keypress', function pressEnter(event){
+      if (event.keyCode == 13){
+        saveChanges(event);
+      }
+      
+    }, false);
     // target items created dynamically and check if they are input fields, if so get the value when loose focus
-    ul.addEventListener('keypress', (event) => {
+    ul.addEventListener('focusout', function looseFocus(event){
+      saveChanges(event);
+    });
+
+
+    function saveChanges(event){
       const clickedItem = event.target;
       if (clickedItem.hasAttribute('value')){
-        if (event.keyCode == 13){
           const newInput = document.querySelector('[value]');
+          const newInputValue = document.querySelector('[value]').getAttribute('value');
           const listItem = list[clickedItem.previousElementSibling.id];
+          if(!newInput.value == ''){
           clickedItem.outerHTML =  `<p class="text " data-job="edit">${newInput.value}</p>`;
-          listItem.name = newInput.value;
-        }
+            listItem.name = newInput.value;
+          } else {
+            clickedItem.outerHTML =  `<p class="text " data-job="edit">${newInputValue}</p>`;
+          }
       }
       localStorage.setItem('items', JSON.stringify(list));
-    });
-    
+    };
+
 
     // Button which clears the whole list
     clearButton.addEventListener('click', function() {
