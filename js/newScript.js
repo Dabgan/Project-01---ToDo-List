@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const clearButton = document.querySelector('#clear');
     const search = document.querySelector('#search');
     const displayDate = document.querySelector('.current-date');
+    const infoButton = document.querySelector('#info');
+    const infoText = document.querySelector('.information');
     
     const check = 'fa-check-circle';
     const uncheck = 'fa-circle';
@@ -24,12 +26,13 @@ document.addEventListener('DOMContentLoaded', function(){
     const addToDo = function(toDo, id, done, trash){
       if(trash){ return; }
       const itemDone = done ? check : uncheck;
+      const itemDoneBackground = done ? 'checked' : 'unchecked';
       const itemLineThrough = done ? lineThrough : '';
       const item = `
-                    <li class='todo-item'>
-                      <i class="far ${itemDone}" data-job='complete' id="${id}"></i>
+                    <li class='todo-item ${itemDoneBackground}'>
+                      <i class="icon1 far ${itemDone}" data-job='complete' id="${id}"></i>
                       <p class="text ${itemLineThrough}" data-job='edit'>${toDo}</p>
-                      <i class="fas fa-trash delete-button" data-job='delete' id="${id}"></i>
+                      <i class="icon1 fas fa-trash delete-button" data-job='delete' id="${id}"></i>
                     </li>
                     `;
       const position = 'beforeend';
@@ -103,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function(){
       el.classList.toggle(uncheck);
       el.nextElementSibling.classList.toggle(lineThrough);
       list[el.id].done = list[el.id].done ? false : true;
+      el.parentElement.classList.toggle('checked');
+      el.parentElement.classList.toggle('unchecked');
     }
 
     // delete toDo
@@ -193,12 +198,20 @@ document.addEventListener('DOMContentLoaded', function(){
       const currentDate = new Date();
       const days = ['Sunday','Monday','Tuesday','Thursday','Friday','Saturday'];
       const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      // displayDate.textContent = `${days[currentDate.getDay()]}, ${currentDate.getDate()} ${months[currentDate.getMonth()]}`
       displayDate.textContent = `${days[currentDate.getDay()]}, ${months[currentDate.getMonth()]} ${leadingZero(currentDate.getDate())}`
     }
 
 
-
+    // shows div with information
+    function displayInfo(item){
+      item.addEventListener('mousedown', function(){
+        infoText.classList.remove('disable');
+      })
+      item.addEventListener('mouseup', function(){
+        infoText.classList.add('disable');
+      })
+    }
+    displayInfo(infoButton);
     addDate();
 
 });
