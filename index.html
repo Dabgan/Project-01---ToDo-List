@@ -8,24 +8,22 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="https://kit.fontawesome.com/d460c225fb.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
-
     </head>
     <body>
+
         <div class="todo-cnt">
-            
             <form id="search-form" class="display">
                 <div class="display-cnt dis-left">
-                        <i class="fas fa-sync-alt icon" id="clear"></i>
-                        <input type="search" class="todo-search" id="search" placeholder="search..." autocomplete="off"> 
+                    <i class="fas fa-sync-alt icon" id="clear"></i>
+                    <input type="search" class="todo-search" id="search" placeholder="search..." autocomplete="off"> 
                 </div>
                 <div class="display-cnt dis-right">
                     <i class="far fa-question-circle icon" id="info"></i>
-                    <div class="information disable">You can doubleclick on item to edit it!</div>
+                    <div class="information disable"><div class="info-wrapper">You can doubleclick on item to edit it!</div></div>
                     <p class="current-date"></p>
                 </div>
             </form>
-            
-
+        
             <div class="todo-list" id="todo-list">
                 <ul>
                 </ul>
@@ -36,13 +34,9 @@
                 <label for="text" class="label"></label>
                 <input type="text" name="text" class="text-field" placeholder="Add new task" autocomplete="off"></input>
             </form>
-
         </div>
-        
+    
 
-        
-
-
-        <script src="js/newScript.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
