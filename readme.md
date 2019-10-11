@@ -1,7 +1,7 @@
 # ToDo List
 
 Just a simple todo list.
-I enjoyed pretty much everything about this project. :simple_smile: 
+I enjoyed pretty much everything about this project. :) 
 
 You can check the demo [here](https://dabgan.github.io/project01-ToDo-List.html).
 
