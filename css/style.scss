@@ -150,6 +150,10 @@ body {
     }
 }
 
+.todo-item-hold {
+    background: $item-hover;
+}
+
 .delete-button {
     font-size: 1.4rem;
     padding: 0 15px;
@@ -214,6 +218,20 @@ body {
 
 .disable {
     display: none;
+    visibility: hidden;
+}
+
+.hidden {
+    // display: none;
+    opacity: 0.4;
+    transition: opacity 0.2s linear;
+}
+
+.hovered {
+    transform: translateY(5px);
+    border-top: dotted;
+    transition: all 0.1s linear;
+    
 }
 
 .lineThrough {

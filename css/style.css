@@ -187,6 +187,10 @@ body {
   cursor: pointer;
 }
 
+.todo-item-hold {
+  background: #c7e1fa;
+}
+
 .delete-button {
   font-size: 1.4rem;
   padding: 0 15px;
@@ -261,6 +265,21 @@ body {
 
 .disable {
   display: none;
+  visibility: hidden;
+}
+
+.hidden {
+  opacity: 0.4;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.hovered {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  border-top: dotted;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .lineThrough {

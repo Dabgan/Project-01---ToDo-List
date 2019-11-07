@@ -16,4 +16,5 @@ In this project I used **only** HTML, CSS and Vanilla JS.
  - how to use this stored data
  - SCSS syntax and variables
  - what is JS Date object and how to use it
+ - drag & drop events using Vanilla JS
 

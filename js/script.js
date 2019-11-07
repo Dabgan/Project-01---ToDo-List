@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const itemDoneBackground = done ? 'checked' : 'unchecked';
     const itemLineThrough = done ? lineThrough : '';
     const item = `
-                  <li class='todo-item ${itemDoneBackground}'>
+                  <li class='todo-item ${itemDoneBackground}' draggable='true'>
                     <i class="job-icon far ${itemDone}" data-job='complete' id="${id}"></i>
                     <p class="text ${itemLineThrough}" data-job='edit'>${toDo}</p>
                     <i class="job-icon fas fa-trash delete-button" data-job='delete' id="${id}"></i>
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const currentDate = new Date();
     const days = ['Sunday','Monday','Tuesday','Thursday','Friday','Saturday'];
     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    displayDate.textContent = `${days[currentDate.getDay()]}, ${months[currentDate.getMonth()]} ${leadingZero(currentDate.getDate())}`;
+    displayDate.textContent = `${days[currentDate.getDay()-1]}, ${months[currentDate.getMonth()]} ${leadingZero(currentDate.getDate())}`;
   }
 
 
