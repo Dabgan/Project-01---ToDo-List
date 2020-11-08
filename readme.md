@@ -3,7 +3,7 @@
 Just a simple todo list.
 I enjoyed pretty much everything about this project. :) 
 
-You can check the demo [here](https://dabgan.github.io/project%20demos/Project01-ToDoList/index.html).
+You can check the demo [here](https://todoappbydabgan.netlify.app/).
 
 ## What technologies did I use?
 
